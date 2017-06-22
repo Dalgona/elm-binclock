@@ -10,7 +10,10 @@
     "url": "https://dalgona.hontou.moe"
   },
   "main": "src/index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "webpack",
+    "server": "webpack-dev-server --port 5757"
+  },
   "dependencies": {
     "webpack": "~3.0.0",
     "webpack-dev-middleware": "~1.11.0",
