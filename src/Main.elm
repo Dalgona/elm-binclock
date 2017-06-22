@@ -1,6 +1,7 @@
 module Main exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (class, style)
+import Color exposing (Color)
 import Date exposing (Date, hour, minute, second)
 import Task
 import Time exposing (Time)
@@ -55,7 +56,7 @@ subscriptions model =
 
 initModel : Model
 initModel =
-  Model (Date.fromString "0000-01-01T00:00:00") (Size 0 0)
+  Model (Date.fromString "0000-01-01T00:00:00") (Size 0 0) Color.white
 
 
 initCmd : Cmd Msg
