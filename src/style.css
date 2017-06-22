@@ -1,0 +1,28 @@
+.led-container {
+}
+
+.time-part {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+
+.digit {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+
+.led {
+  width: 32px;
+  height: 32px;
+
+  background-color: black;
+  border-color: transparent;
+  border-radius: 2147483647px;
+  background-clip: content-box;
+}
+
+.led.led-0 {
+  opacity: 0.2;
+}
