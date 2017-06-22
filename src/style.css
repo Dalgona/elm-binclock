@@ -48,6 +48,7 @@ body {
   border-style: solid;
   border-radius: 2147483647px;
   background-clip: content-box;
+  opacity: 0.8;
   transition: opacity 0.3s;
 }
 

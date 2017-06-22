@@ -95,7 +95,7 @@ initModel =
   Model
     (Date.fromString "0000-01-01T00:00:00")
     (Size 0 0)
-    (HSLColor 0 0 360)
+    (HSLColor 0 0 180)
     False
 
 
