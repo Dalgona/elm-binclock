@@ -50,33 +50,51 @@ update msg model =
 view : Model -> Html Msg
 view model =
   let
-    bits =
+    digits =
       model.now
         |> extractTime
         |> transformTime
         |> chunkList []
 
+    unitSize = toFloat (min model.winSize.width model.winSize.height)
+
+    contSize = unitSize * 0.6
+
+    ledSize = unitSize * 0.08
+
   in
     div []
-      [ text (toString bits)
-      , div [ class "led-container" ] (renderPart bits)
+      [ text (toString digits)
+      , div
+          [ class "led-container"
+          , style [ ("width", toString contSize ++ "px") ]
+          ] (renderPart ledSize digits)
       ]
 
 
-renderPart : ChunkedList -> List (Html Msg)
-renderPart bits =
-  List.map (\x -> div [ class "time-part" ] (renderDigit x)) bits
+renderPart : Float -> ChunkedList -> List (Html Msg)
+renderPart size digits =
+  List.map (\x -> div [ class "time-part" ] (renderDigit size x)) digits
 
 
-renderDigit : Chunk -> List (Html Msg)
-renderDigit chunk =
-  List.map (\x -> div [ class "digit" ] (renderLEDs x) ) chunk
+renderDigit : Float -> Chunk -> List (Html Msg)
+renderDigit size chunk =
+  List.map (\x -> div [ class "digit" ] (renderLEDs size x) ) chunk
 
 
-renderLEDs : (Int, Int) -> List (Html Msg)
-renderLEDs (count, num) =
+renderLEDs : Float -> (Int, Int) -> List (Html Msg)
+renderLEDs size (count, num) =
   let
-    led = \bit -> div [ class ("led led-" ++ toString bit)] []
+    borderSize = size * 0.1
+
+    ledStyle =
+      style
+        [ ( "width", toString size ++ "px" )
+        , ( "height", toString size ++ "px" )
+        , ( "border-width", toString borderSize ++ "px" )
+        ]
+
+    led = \bit -> div [ class ("led led-" ++ toString bit) , ledStyle ] []
 
     temp = toBits [] num
     

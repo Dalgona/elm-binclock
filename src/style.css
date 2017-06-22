@@ -1,4 +1,23 @@
+body {
+  margin: 0;
+}
+
+#wrapper {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
 .led-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
 }
 
 .time-part {
@@ -14,13 +33,13 @@
 }
 
 .led {
-  width: 32px;
-  height: 32px;
-
+  box-sizing: border-box;
   background-color: black;
   border-color: transparent;
+  border-style: solid;
   border-radius: 2147483647px;
   background-clip: content-box;
+  transition: opacity 0.3s;
 }
 
 .led.led-0 {
