@@ -1,5 +1,4 @@
 module SettingsUI exposing (render)
-import Color
 import Html exposing (..)
 import Html.Attributes as Attr exposing (..)
 import Html.Events exposing (onClick, onInput)
@@ -34,8 +33,6 @@ settingsButton model =
 settingsPane : Model -> Html Msg
 settingsPane model =
   let
-    dhsl = denormalizeHsl model.bgColor
-
     row = sliderRow 0 360
 
   in
@@ -43,9 +40,9 @@ settingsPane model =
       then
         div [ class "settings-pane" ]
           [ table []
-              [ row Hue dhsl.hue
-              , row Saturation dhsl.saturation
-              , row Lightness dhsl.lightness
+              [ row Hue model.bgColor.hue
+              , row Saturation model.bgColor.saturation
+              , row Lightness model.bgColor.lightness
               ]
           ]
 

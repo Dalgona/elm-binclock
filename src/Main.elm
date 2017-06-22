@@ -1,7 +1,6 @@
 module Main exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (class, id, style)
-import Color exposing (Color)
 import Date exposing (Date, hour, minute, second)
 import Task
 import Time exposing (Time)
@@ -45,20 +44,18 @@ handleChangeBG model comp val =
   let
     intval = Result.withDefault 0 <| String.toInt val
 
-    dhsl = denormalizeHsl model.bgColor
+    hsl = model.bgColor
 
-    newDhsl =
+    newHsl =
       case comp of
         Hue ->
-          { dhsl | hue = intval }
+          { hsl | hue = intval }
 
         Saturation ->
-          { dhsl | saturation = intval }
+          { hsl | saturation = intval }
 
         Lightness ->
-          { dhsl | lightness = intval }
-
-    newHsl = normalizeHsl newDhsl
+          { hsl | lightness = intval }
 
   in
     ({ model | bgColor = newHsl }, Cmd.none)
@@ -69,9 +66,9 @@ handleChangeBG model comp val =
 view : Model -> Html Msg
 view model =
   let
-    cssH = toString <| model.bgColor.hue * 180 / pi
-    cssS = toString (model.bgColor.saturation * 100) ++ "%"
-    cssL = toString (model.bgColor.lightness * 100) ++ "%"
+    cssH = toString model.bgColor.hue
+    cssS = toString (toFloat model.bgColor.saturation / 360 * 100) ++ "%"
+    cssL = toString (toFloat model.bgColor.lightness / 360 * 100) ++ "%"
     cssBg = "hsl(" ++ cssH ++ ", " ++ cssS ++ ", " ++ cssL ++ ")"
 
   in
@@ -98,7 +95,7 @@ initModel =
   Model
     (Date.fromString "0000-01-01T00:00:00")
     (Size 0 0)
-    (HSLColor 0 0 1 1)
+    (HSLColor 0 0 360)
     False
 
 
