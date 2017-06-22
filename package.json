@@ -23,5 +23,9 @@
     "style-loader": "~0.18.2",
     "css-loader": "~0.28.4",
     "url-loader": "~0.5.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dalgona/elm-binclock.git"
   }
 }
