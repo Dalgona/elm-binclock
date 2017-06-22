@@ -64,8 +64,7 @@ view model =
 
   in
     div []
-      [ text (toString digits)
-      , div
+      [ div
           [ class "led-container"
           , style [ ("width", toString contSize ++ "px") ]
           ] (renderPart ledSize digits)
