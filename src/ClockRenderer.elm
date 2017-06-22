@@ -1,4 +1,4 @@
-module ClockRenderer exposing (..)
+module ClockRenderer exposing (render)
 import Html exposing (..)
 import Html.Attributes exposing (class, style)
 import AppTypes exposing (..)
