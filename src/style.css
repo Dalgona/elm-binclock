@@ -56,6 +56,14 @@ body {
   opacity: 0.2;
 }
 
+.dark .led {
+  background-color: white;
+}
+
+.dark .led.led-0 {
+  opacity: 0.1;
+}
+
 #settings-container {
   display: -webkit-flex;
   display: flex;
