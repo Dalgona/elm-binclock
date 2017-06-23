@@ -1,5 +1,6 @@
 html {
   font-size: 16px;
+  font-family: '.SFNSText-Regular', 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica', 'Verdana', sans-serif;
 }
 
 body {
@@ -98,7 +99,8 @@ body {
 }
 
 .settings-button.on {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.8);
+  background-position-x: -40px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -109,14 +111,18 @@ body {
 
 .settings-pane {
   padding: 0.75em;
-  color: #222;
-  background-color: rgba(0, 0, 0, 0.2);
+  color: #ddd;
+  background-color: rgba(0, 0, 0, 0.8);
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   border-bottom-left-radius: 7px;
 }
 
 .dark .settings-pane {
-  color: #ddd;
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.settings-pane th {
+  text-align: left;
+  padding-right: 1em;
 }
