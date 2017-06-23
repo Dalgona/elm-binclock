@@ -32,6 +32,12 @@ module.exports = {
         use: [
           'elm-webpack-loader'
         ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          'file-loader'
+        ]
       }
     ],
     noParse: /\.elm$/

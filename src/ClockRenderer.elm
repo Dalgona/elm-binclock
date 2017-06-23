@@ -16,12 +16,9 @@ render model =
 
     ledSize = unitSize * 0.08
 
-    darkClass =
-      if model.bgColor.lightness < 180 then " dark" else ""
-
   in
     div
-      [ class <| "led-container" ++ darkClass
+      [ class "led-container"
       , style [ ("width", toString contSize ++ "px") ]
       ] (renderPart ledSize digits)
 

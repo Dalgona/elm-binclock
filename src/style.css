@@ -77,25 +77,46 @@ body {
 }
 
 .settings-button {
-  padding: 0.5em 1em;
-  font-size: 1rem;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  background-image: url('./icon-settings.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
   border: none;
   border-radius: 7px;
   cursor: pointer;
 }
 
+.settings-button:focus {
+  outline: none;
+}
+
+.dark .settings-button {
+  background-position-x: -40px;
+}
+
 .settings-button.on {
+  background-color: rgba(0, 0, 0, 0.2);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
+.dark .settings-button.on {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .settings-pane {
   padding: 0.75em;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+  color: #222;
+  background-color: rgba(0, 0, 0, 0.2);
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   border-bottom-left-radius: 7px;
+}
+
+.dark .settings-pane {
+  color: #ddd;
+  background-color: rgba(255, 255, 255, 0.2);
 }

@@ -16,9 +16,6 @@ render model =
 settingsButton : Model -> Html Msg
 settingsButton model =
   let
-    btnText =
-      if model.settingsOpen then "Close" else "Settings"
-
     btnClassEx =
       if model.settingsOpen then " on" else ""
 
@@ -27,7 +24,7 @@ settingsButton model =
       [ onClick ToggleSettings
       , class <| "settings-button" ++ btnClassEx
       ]
-      [ text btnText ]
+      []
 
 
 settingsPane : Model -> Html Msg

@@ -67,12 +67,22 @@ view : Model -> Html Msg
 view model =
   let
     cssH = toString model.bgColor.hue
+
     cssS = toString (toFloat model.bgColor.saturation / 360 * 100) ++ "%"
+
     cssL = toString (toFloat model.bgColor.lightness / 360 * 100) ++ "%"
+
     cssBg = "hsl(" ++ cssH ++ ", " ++ cssS ++ ", " ++ cssL ++ ")"
 
+    darkClass =
+      if model.bgColor.lightness < 180 then " dark" else ""
+
   in
-    div [ id "app-container", style [ ("background-color", cssBg) ] ]
+    div
+      [ id "app-container"
+      , class darkClass
+      , style [ ("background-color", cssBg) ]
+      ]
       [ ClockRenderer.render model
       , SettingsUI.render model
       ]
